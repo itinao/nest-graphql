@@ -8,7 +8,11 @@ import { BooksModule } from './books/books.module';
 @Module({
   imports: [
     GraphQLModule.forRoot({
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      //autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      typePaths: ['./**/*.gql'],
+      definitions: {
+        path: join(process.cwd(), 'src/graphql.ts'),
+      },
     }),
     BooksModule,
   ],
